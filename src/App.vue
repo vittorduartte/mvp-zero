@@ -34,6 +34,18 @@ export default {
     FomularioCliente,
     MenuCliente,
   },
+  metaInfo: {
+    title: 'FoodCare',
+    titleTemplate: '%s | Alimentação natural de pets',
+    htmlAttrs: {
+      lang: 'pt-BR'
+    },
+    meta: [
+      { charset: 'utf-8' },
+      { name: 'description', content: 'Uma startup focada em informar e alimentar o seu pet de maneira saudável.' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' }
+    ]
+  },
 };
 </script>
   
