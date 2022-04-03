@@ -8,14 +8,11 @@
     <div slot="title">
       <h3>PetCare - Alimentação saudável</h3>
     </div>
-    <vs-navbar-item index="0">
-      <a href="#" style="font-size: 18px">Home</a>
-    </vs-navbar-item>
     <vs-navbar-item index="1">
-      <a href="#" style="font-size: 18px">News</a>
+      <a href="#" style="font-size: 18px">Novidades</a>
     </vs-navbar-item>
     <vs-navbar-item index="2">
-      <a href="#" style="font-size: 18px">Update</a>
+      <a href="#" style="font-size: 18px">Sobre Nós</a>
     </vs-navbar-item>
   </vs-navbar>
 </template>

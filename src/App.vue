@@ -3,7 +3,7 @@
     <MenuCliente />
     <div class="container">
       <vs-row vs-w="12">
-        <vs-col vs-offset="6" vs-w="5">
+        <vs-col vs-sm="10" vs-w="5">
           <FomularioCliente />
         </vs-col>
       </vs-row>

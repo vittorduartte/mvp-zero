@@ -63,14 +63,14 @@
       class="form-element"
       size="large"
       label="Idade do pet:"
-      placeholder="Digite a idade do seu pet"
+      placeholder="Ex.: 1 ano e 4 meses"
       v-model="idadePet"
     />
     <vs-input
       class="form-element"
       size="large"
-      label="Peso:"
-      placeholder="Digite o peso do seu pet"
+      label="Peso do pet:"
+      placeholder="Digite o peso do seu pet em Kg"
       v-model="pesoAtual"
     />
     <vs-input
@@ -84,7 +84,7 @@
     <vs-input
       class="form-element"
       size="large"
-      label="Seu melhor email:"
+      label="Email:"
       placeholder="Digite o seu melhor email"
       type="email"
       v-model="email"
