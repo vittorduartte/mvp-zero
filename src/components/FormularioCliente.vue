@@ -208,6 +208,7 @@ export default {
         { text: "Pelo Curto Americano", value: "pelo_curto_americano" },
         { text: "Snowshoe", value: "snowshoe" },
         { text: "Exótico", value: "exótico" },
+        { text: "Sem Raça Definida", value: "srd" },
       ],
       racasPetCaes: [
         { text: "Akita", value: "akita" },
