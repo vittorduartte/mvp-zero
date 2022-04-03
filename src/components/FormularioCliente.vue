@@ -1,6 +1,12 @@
 <template>
   <form class="order-form">
+    <h2 class="form-title">
+      Solicite o cardápio sob medida para o seu pet 🐶😺🍌🍉
+    </h2>
+    <vs-divider></vs-divider>
     <vs-input
+      autofocus
+      required
       class="form-element"
       size="large"
       label="Nome do tutor:"
@@ -8,14 +14,20 @@
       v-model="nomeTutor"
     />
     <ul class="form-element_radio">
-      <label class="form-label_radio" for="possuiComorbidade"
+      <label class="form-label_radio" for="especiePet"
         >Qual espécie do seu pet?</label
       >
       <li>
-        <vs-radio v-model="especie" vs-name="raca" vs-value="Cao">Cão</vs-radio>
+        <vs-radio v-model="especie" color="danger" vs-name="raca" vs-value="Cao"
+          >Cão</vs-radio
+        >
       </li>
       <li>
-        <vs-radio v-model="especie" vs-name="raca" vs-value="Gato"
+        <vs-radio
+          v-model="especie"
+          color="danger"
+          vs-name="raca"
+          vs-value="Gato"
           >Gato</vs-radio
         >
       </li>
@@ -94,12 +106,20 @@
         >O pet é castrado?</label
       >
       <li>
-        <vs-radio v-model="eCastrado" vs-name="eCastrado" :vs-value="true"
+        <vs-radio
+          v-model="eCastrado"
+          color="danger"
+          vs-name="eCastrado"
+          :vs-value="true"
           >Sim</vs-radio
         >
       </li>
       <li>
-        <vs-radio v-model="eCastrado" vs-name="eCastrado" :vs-value="false"
+        <vs-radio
+          v-model="eCastrado"
+          color="danger"
+          vs-name="eCastrado"
+          :vs-value="false"
           >Não</vs-radio
         >
       </li>
@@ -112,6 +132,7 @@
         <vs-radio
           v-model="possuiComorbidade"
           vs-name="possuiComorbidade"
+          color="danger"
           :vs-value="true"
           >Sim</vs-radio
         >
@@ -120,6 +141,7 @@
         <vs-radio
           v-model="possuiComorbidade"
           vs-name="possuiComorbidade"
+          color="danger"
           :vs-value="false"
           >Não</vs-radio
         >
@@ -139,14 +161,31 @@
       :disabled="isLoading"
       class="form-element"
       size="large"
+      color="danger"
       @click="registerOrder()"
       >Solicitar Pedido</vs-button
     >
+
+    <vs-popup title="Recebemos o seu pedido!" :active.sync="popupOrder">
+      <h2 class="message-order-title">Parabéns, {{ nomeTutor }}! 🎉🎊</h2>
+      <vs-divider></vs-divider>
+      <p class="message-order-processed">
+        Você já está a um passo de dar uma alimentação mais saudável e
+        contribuir com a longevidade do(a) {{ nomePet }}! Ele também agradece
+        por isso 🐶😺💕
+      </p>
+      <p class="message-order-processed">
+        Estamos analizando os dados do seu amiguinho e preparando o cardápio
+        especial para ele. 🤖 Em breve nossa equipe de vendas entrará em contato
+        com todos os detalhes e ofertas.
+      </p>
+    </vs-popup>
   </form>
 </template>
 
 <script>
 import service from "../services";
+
 export default {
   data() {
     return {
@@ -233,7 +272,7 @@ export default {
       possuiComorbidade: false,
       comorbidades: "",
       eCastrado: false,
-      alimentoNatural: "",
+      popupOrder: false,
     };
   },
   methods: {
@@ -242,6 +281,7 @@ export default {
     },
     async registerOrder() {
       this.isLoading = true;
+      this.$vs.loading();
       const create_at = new Date();
       const response = await service.postOrder({
         created_at: create_at.toLocaleString(),
@@ -277,10 +317,19 @@ export default {
           position: "top-right",
           icon: "pets",
         });
+
+        this.popupOrder = true;
       }
 
       this.isLoading = false;
-      this.reset();
+      this.$vs.loading.close();
+    },
+  },
+  watch: {
+    popupOrder(present) {
+      if (!present) {
+        this.reset();
+      }
     },
   },
 };
@@ -303,7 +352,7 @@ li {
   border-radius: 10px;
   padding: 2.5em;
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.135216);
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 }
 .form-element_radio {
   margin: 20px 0px;
@@ -313,5 +362,13 @@ input {
 }
 .form-label_radio {
   font-family: "Montserrat Medium";
+}
+.message-order-processed {
+  line-height: 25px;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.message-order-title {
+  text-align: center;
 }
 </style>

@@ -1,16 +1,13 @@
 <template>
   <vs-navbar
     class="petcare-navmenu"
-    :color="menuColor"
+    color="warning"
     text-color="rgba(255,255,255,.6)"
     active-text-color="rgba(255,255,255,1)"
   >
     <div slot="title">
-      <h3>PetCare - Alimentação saudável</h3>
+      <img class="nav-brand" src="../assets/images/logo-horizontal-branco.svg" alt="logo-foodcare">
     </div>
-    <vs-navbar-item index="1">
-      <a href="#" style="font-size: 18px">Novidades</a>
-    </vs-navbar-item>
     <vs-navbar-item index="2">
       <a href="#" style="font-size: 18px">Sobre Nós</a>
     </vs-navbar-item>
@@ -34,5 +31,9 @@ h3 {
 a {
   font-family: "MontSerrat Medium";
   font-size: 18px;
+}
+.nav-brand {
+  width: 10em;
+  margin-left: 2em;
 }
 </style>

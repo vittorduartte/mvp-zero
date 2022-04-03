@@ -7,12 +7,21 @@ import './styles/fonts.css'
 import './styles/main.css'
 import VueTheMask from 'vue-the-mask'
 import Vuex from 'vuex'
+// import Vuelidate from 'vuelidate'
 
 Vue.config.productionTip = false
 Vue.use(Vuex)
 Vue.use(VueTheMask)
+// Vue.use(Vuelidate)
 Vue.use(Vuesax, {
-  // options here
+  theme: {
+    colors: {
+      success:'#6A8157',
+      danger:'#8D1D09',
+      warning:'#EEB506',
+      primary:'#E84738',
+    }
+  }
 })
 new Vue({
   render: h => h(App),
