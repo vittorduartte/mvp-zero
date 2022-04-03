@@ -1,28 +1,35 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <MenuCliente />
+    <div class="container">
+      <vs-row vs-w="12">
+        <vs-col vs-offset="6" vs-w="5">
+          <FomularioCliente />
+        </vs-col>
+      </vs-row>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import FomularioCliente from "./components/FormularioCliente.vue";
+import MenuCliente from "./components/MenuCliente.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    FomularioCliente,
+    MenuCliente,
+  },
+};
 </script>
-
+  
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  background-color: rgb(240, 240, 240);
+}
+.container {
+  max-width: 1440px;
+  margin: 0px auto;
 }
 </style>
